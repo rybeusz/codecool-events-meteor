@@ -1,0 +1,49 @@
+<template name="add_event">
+    <div id="dupa" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form class="form-horizontal new-event">
+                        <fieldset>
+                            <legend>Add event</legend>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="name">Name</label>
+                                <div class="col-md-6">
+                                    <input id="name" name="name" type="text" class="form-control input-md" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="category">Category</label>
+                                <div class="col-md-6">
+                                    <input id="category" name="category" type="text" class="form-control input-md" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="description">Description</label>
+                                <div class="col-md-6">
+                                    <textarea class="form-control" id="description" name="description" required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="time">Event time</label>
+                                <div class="col-md-6">
+                                    <input id="time" type="datetime-local" name="time" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="submit">Actions</label>
+                                <div class="col-md-6">
+                                    <input type="submit" value="Submit" class="btn btn-default">
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

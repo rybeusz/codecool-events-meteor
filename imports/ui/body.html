@@ -1,0 +1,115 @@
+<body>
+  <div class="container">
+    <header>
+        <div class="text-center">
+            <img src="images/codecoolevents.jpg" class="img-responsive center-block" alt="Responsive image" width="400" height="280">
+        </div>
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    {{#if currentUser}}
+                        <a class="navbar-brand" href="#">Admin panel</a>
+                    {{else}}
+                        <a class="navbar-brand" href="#">Events</a>
+                    {{/if}}
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        {{#if currentUser}}
+                        <li><a href="#" data-toggle="modal" data-target="#dupa">Add event</a></li>
+                        {{/if}}
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Category:
+                                {{searchCategory}}
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" class="select-category">All</a></li>
+                                {{#each category in categories}}
+                                    <li><a href="#" class="select-category">{{category}}</a></li>
+                                {{/each}}
+                            </ul>
+                        </li>
+                    </ul>
+                    <span class="navbar-form navbar-left">
+                            <input type="text" class="form-control select-name" placeholder="Search by name" id="searchName">
+                    </span>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            {{> login_form }}
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </header>
+
+      {{> event }}
+      {{#if currentUser}}
+          {{> add_event }}
+      {{/if}}
+
+      <footer class="text-center">
+          <p>Copyright © 2017 Stefan Kania</p>
+          <!-- Trigger the modal with a button -->
+          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#info">Info</button>
+
+          <!-- Modal -->
+          <div id="info" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h2 class="modal-title">Informations</h2>
+                      </div>
+                      <div class="modal-body text-left">
+                          <p>Features</p>
+                          <ul>
+                              <li>Look for upcoming events.</li>
+                              <li>Filter events by category and name.</li>
+                              <li>Add/edit events only on admin account.</li>
+                              <li>Everything is on live, no redirects to subpages.</li>
+                          </ul>
+                          <p>Another info</p>
+                          <ul>
+                              <li>Yes, it's java.. javascript :p</li>
+                              <li>with <a href="https://www.meteor.com/" target="_blank">Meteor</a> framework</li>
+                              <li>and that means, this web-app can be easily converted to mobile app ;)</li>
+                              <li>data to admin account for creating and editing events:</li>
+                              <li>login: admintest</li>
+                              <li>password: testadmin</li>
+                          </ul>
+                          <p>Todo</p>
+                          <ul>
+                              <li>add simple-text editor to add/edit events description</li>
+                              <li>add admin account editing</li>
+                              <li>add automatic archiving events that already happened</li>
+                              <li>add button to see archived events</li>
+                              <li>notifications about upcoming events</li>
+                              <li>repair navbar</li>
+                              <li>improve user experience/outlook</li>
+                          </ul>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+      </footer>
+  </div>
+</body>

@@ -1,0 +1,61 @@
+<template name="event">
+      <table class="table table-striped">
+          <thead>
+          <tr>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Time</th>
+              {{#if currentUser}}
+              <th>Actions</th>
+              {{/if}}
+          </tr>
+          </thead>
+          <tbody>
+            {{#each events}}
+              <tr>
+                  <td>
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#{{_id}}">{{name}}</button>
+                  </td>
+                  <td>{{category}}</td>
+                  <td>{{correctTime}}</td>
+                  {{#if currentUser}}
+                  <td>
+                      <div class="btn-group">
+                          <span class="edit-event">
+                            <button class="btn btn-default edit" data-toggle="modal" data-target="#edit{{_id}}">Edit</button>
+                              {{>edit_event}}
+                          </span>
+                          <span>
+                            <button class="btn btn-default delete">&times;</button>
+                          </span>
+                      </div>
+                  </td>
+                  {{/if}}
+                  <!-- Modal -->
+                  <div id="{{_id}}" class="modal fade" role="dialog">
+                      <div class="modal-dialog">
+                          <!-- Modal content-->
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h2 class="modal-title">{{name}}</h2>
+                                  <!--<p>-->
+                                      <!--{{category}}-->
+                                      <!--{{correctTime}}-->
+                                  <!--</p>-->
+                              </div>
+                              <div class="modal-body">
+                                  <p>Description:</p>
+                                  <p>{{description}}</p>
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </tr>
+            {{/each}}
+          </tbody>
+      </table>
+</template>
